@@ -139,7 +139,7 @@ public class FormSiswa extends javax.swing.JFrame {
         MenuItem selected = (MenuItem) cbMenu.getSelectedItem();
         if (selected != null) {
             int harga = selected.getHarga();
-            int jumlah = (Integer) spnJumlah.getValue();
+            int jumlah = ((Number) spnJumlah.getValue()).intValue();
             int total = harga * jumlah;
 
             txtHarga.setText(String.valueOf(harga));
@@ -386,7 +386,7 @@ public class FormSiswa extends javax.swing.JFrame {
             return;
         }
 
-        int jumlah = (Integer) spnJumlah.getValue();
+        int jumlah = ((Number) spnJumlah.getValue()).intValue();
         if (jumlah <= 0) {
             JOptionPane.showMessageDialog(this, "Jumlah pesanan minimal 1!");
             return;
