@@ -49,6 +49,8 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnCetakStruk" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnRefresh" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" pref="480" max="32767" attributes="0"/>
@@ -102,6 +104,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCetakStruk" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -220,6 +223,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Riwayat &amp; Tracking Pesanan Saya:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCetakStruk">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cetak Struk"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCetakStrukActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRefresh">
       <Properties>

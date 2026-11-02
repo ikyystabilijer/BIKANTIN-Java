@@ -16,8 +16,9 @@ Sistem ini memiliki dua peran pengguna (*Multi-Role*): **Admin Kantin** untuk me
 ### 👨‍🎓 Dashboard Siswa
 - **Katalog Menu Interaktif:** Menampilkan pilihan makanan/minuman beserta harganya secara dinamis dari database.
 - **Kalkulasi Otomatis:** Perhitungan total bayar otomatis saat menentukan jumlah porsi/item yang dipesan.
-- **Status Pesanan Real-Time:** Notifikasi status pesanan terkini yang diperbarui otomatis setiap 3 detik (*auto-refresh* menggunakan `javax.swing.Timer`).
-- **Riwayat Pesanan Pribadi:** Menampilkan riwayat pesanan khusus milik siswa yang sedang login.
+- **Status Pesanan Real-Time:** Notifikasi status pesanan terkini yang diperbarui otomatis setiap 3 detik (*auto-refresh* menggunakan `javax.swing.Timer`) dengan warna banner dinamis.
+- **Riwayat Pesanan Pribadi:** Menampilkan riwayat pesanan dengan badge status warna-warni (*Emerald, Indigo, Amber, Red*).
+- **Cetak Struk Digital & PDF:** Fitur cetak struk pesanan langsung ke printer fisik / Simpan sebagai PDF dan ekspor file `.txt` dengan tema warna modern (bisa diakses via tombol, double-click tabel, atau pop-up instan setelah memesan).
 
 ### 👨‍🍳 Dashboard Admin (Kantin)
 - **Manajemen Menu (CRUD):**
@@ -106,9 +107,10 @@ Bikantin/
 └── src/
     ├── Main.java            # Entry point aplikasi (Inisialisasi Look & Feel dan FormLogin)
     ├── Form/
-    │   ├── FormLogin.java   # Halaman Login Multi-User
-    │   ├── FormAdmin.java   # Dashboard Admin (Kelola Menu & Status Pesanan)
-    │   └── FormSiswa.java   # Dashboard Siswa (Pemesanan & Tracking Real-time)
+    │   ├── FormLogin.java        # Halaman Login Multi-User
+    │   ├── FormAdmin.java        # Dashboard Admin (Kelola Menu & Status Pesanan)
+    │   ├── FormSiswa.java        # Dashboard Siswa (Pemesanan & Tracking Real-time)
+    │   └── DialogCetakStruk.java # Modal Struk Pembayaran & Dialog Cetak Printer/PDF
     └── koneksi/
         └── Koneksi.java     # Singleton class koneksi database JDBC
 ```
