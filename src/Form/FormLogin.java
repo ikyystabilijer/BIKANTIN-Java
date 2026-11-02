@@ -19,8 +19,46 @@ public class FormLogin extends javax.swing.JFrame {
         initComponents();
         setTitle("BI-KANTIN - Login");
         setLocationRelativeTo(null);
+        applyCustomStyles();
     }
+    
+    /**
+     * Mengatur tema warna dan estetika tampilan FormLogin
+     */
+    private void applyCustomStyles() {
+        // Background form (off-white bersih dan modern)
+        getContentPane().setBackground(new java.awt.Color(248, 250, 252));
 
+        // Judul Form
+        jLabel1.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 22));
+        jLabel1.setForeground(new java.awt.Color(15, 23, 42)); // Slate 900
+
+        // Label Username & Password
+        java.awt.Font labelFont = new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12);
+        java.awt.Color labelColor = new java.awt.Color(71, 85, 105); // Slate 600
+
+        jLabel2.setFont(labelFont);
+        jLabel2.setForeground(labelColor);
+
+        jLabel3.setFont(labelFont);
+        jLabel3.setForeground(labelColor);
+
+        // Input Fields
+        java.awt.Font inputFont = new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 13);
+        txtUsername.setFont(inputFont);
+        txtUsername.setBackground(java.awt.Color.WHITE);
+
+        txtPassword.setFont(inputFont);
+        txtPassword.setBackground(java.awt.Color.WHITE);
+
+        // Tombol Login (Vibrant Royal Blue)
+        btnLogin.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+        btnLogin.setBackground(new java.awt.Color(37, 99, 235)); // #2563EB
+        btnLogin.setForeground(java.awt.Color.WHITE);
+        btnLogin.setFocusPainted(false);
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,29 +93,27 @@ public class FormLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(259, Short.MAX_VALUE)
+                .addContainerGap(297, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(307, 307, 307))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtUsername)
                                 .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))
                         .addGap(254, 254, 254))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnLogin)
-                        .addGap(296, 296, 296))))
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(293, 293, 293))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -85,9 +121,9 @@ public class FormLogin extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(btnLogin)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         pack();

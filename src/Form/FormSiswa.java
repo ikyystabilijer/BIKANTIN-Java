@@ -86,6 +86,7 @@ public class FormSiswa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setTitle("BI-KANTIN - Dashboard Siswa (" + username + ")");
         lblUser.setText("Selamat Datang, " + username + "!");
+        applyCustomStyles();
 
         loadMenu();
         tampilPesananSiswa();
@@ -102,6 +103,96 @@ public class FormSiswa extends javax.swing.JFrame {
                 }
             }
         });
+    }
+
+    /**
+     * Mengatur tema warna dan estetika tampilan FormSiswa
+     */
+    private void applyCustomStyles() {
+        // Background Form
+        getContentPane().setBackground(new java.awt.Color(248, 250, 252));
+
+        // Judul Utama & Greeting
+        lblJudul.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 18));
+        lblJudul.setForeground(new java.awt.Color(15, 23, 42)); // Slate 900
+
+        lblUser.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+        lblUser.setForeground(new java.awt.Color(37, 99, 235)); // Royal Blue
+
+        // Label Form
+        java.awt.Font labelFont = new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12);
+        java.awt.Color labelColor = new java.awt.Color(71, 85, 105); // Slate 600
+        jLabel2.setFont(labelFont);
+        jLabel2.setForeground(labelColor);
+        jLabel3.setFont(labelFont);
+        jLabel3.setForeground(labelColor);
+        jLabel4.setFont(labelFont);
+        jLabel4.setForeground(labelColor);
+        jLabel5.setFont(labelFont);
+        jLabel5.setForeground(labelColor);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 13));
+        jLabel6.setForeground(new java.awt.Color(30, 41, 59));
+
+        // Input & Controls
+        cbMenu.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        cbMenu.setBackground(java.awt.Color.WHITE);
+
+        spnJumlah.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 13));
+
+        txtHarga.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 13));
+        txtHarga.setBackground(new java.awt.Color(241, 245, 249));
+
+        // Total bayar field dibuat lebih eye-catching (hijau segar)
+        txtTotal.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 15));
+        txtTotal.setForeground(new java.awt.Color(22, 163, 74));
+        txtTotal.setBackground(new java.awt.Color(240, 253, 244));
+
+        // Status banner terkini
+        lblStatusTerkini.setOpaque(true);
+        lblStatusTerkini.setBackground(new java.awt.Color(238, 242, 255));
+        lblStatusTerkini.setForeground(new java.awt.Color(67, 56, 202));
+        lblStatusTerkini.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+        lblStatusTerkini.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+            new javax.swing.border.LineBorder(new java.awt.Color(199, 210, 254), 1, true),
+            javax.swing.BorderFactory.createEmptyBorder(6, 12, 6, 12)
+        ));
+
+        // Tombol
+        styleButton(btnPesan, new java.awt.Color(22, 163, 74), 14);  // Emerald Green
+        styleButton(btnRefresh, new java.awt.Color(13, 148, 136), 12); // Teal
+        styleButton(btnLogout, new java.awt.Color(225, 29, 72), 12);    // Rose Red
+
+        // Inisialisasi tabel
+        styleTable(tblPesanan, jScrollPane1);
+    }
+
+    private void styleButton(javax.swing.JButton btn, java.awt.Color bgColor, int fontSize) {
+        btn.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, fontSize));
+        btn.setBackground(bgColor);
+        btn.setForeground(java.awt.Color.WHITE);
+        btn.setFocusPainted(false);
+        btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    }
+
+    private void styleTable(javax.swing.JTable table, javax.swing.JScrollPane scrollPane) {
+        table.setRowHeight(28);
+        table.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        table.setSelectionBackground(new java.awt.Color(219, 234, 254));
+        table.setSelectionForeground(new java.awt.Color(15, 23, 42));
+        table.setGridColor(new java.awt.Color(241, 245, 249));
+
+        if (table.getTableHeader() != null) {
+            table.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+            table.getTableHeader().setBackground(new java.awt.Color(226, 232, 240));
+            table.getTableHeader().setForeground(new java.awt.Color(30, 41, 59));
+            table.getTableHeader().setReorderingAllowed(false);
+        }
+
+        if (scrollPane != null) {
+            scrollPane.getViewport().setBackground(java.awt.Color.WHITE);
+            scrollPane.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(226, 232, 240), 1));
+        }
     }
 
     /**
@@ -198,6 +289,7 @@ public class FormSiswa extends javax.swing.JFrame {
             }
 
             tblPesanan.setModel(model);
+            styleTable(tblPesanan, jScrollPane1);
 
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Gagal memuat pesanan siswa", e);

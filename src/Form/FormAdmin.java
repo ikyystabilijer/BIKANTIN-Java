@@ -32,9 +32,90 @@ public class FormAdmin extends javax.swing.JFrame {
         initComponents();
         setTitle("BI-KANTIN - Dashboard Admin");
         setLocationRelativeTo(null);
+        applyCustomStyles();
         tampilMenu();
         tampilPesanan();
         resetMenuInput();
+    }
+
+    /**
+     * Mengatur tema warna dan estetika tampilan FormAdmin
+     */
+    private void applyCustomStyles() {
+        // Background Form
+        getContentPane().setBackground(new java.awt.Color(248, 250, 252));
+
+        // Judul Utama
+        jLabel5.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 18));
+        jLabel5.setForeground(new java.awt.Color(15, 23, 42)); // Slate 900
+
+        // Sub-judul Section
+        java.awt.Font sectionFont = new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14);
+        java.awt.Color sectionColor = new java.awt.Color(30, 41, 59); // Slate 800
+        jLabel8.setFont(sectionFont);
+        jLabel8.setForeground(sectionColor);
+        jLabel7.setFont(sectionFont);
+        jLabel7.setForeground(sectionColor);
+
+        // Label Input Form
+        java.awt.Font labelFont = new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12);
+        java.awt.Color labelColor = new java.awt.Color(71, 85, 105); // Slate 600
+        jLabel1.setFont(labelFont);
+        jLabel1.setForeground(labelColor);
+        jLabel2.setFont(labelFont);
+        jLabel2.setForeground(labelColor);
+        jLabel3.setFont(labelFont);
+        jLabel3.setForeground(labelColor);
+        jLabel4.setFont(labelFont);
+        jLabel4.setForeground(labelColor);
+
+        // Text input & ComboBox
+        java.awt.Font inputFont = new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12);
+        txtNamaMenu.setFont(inputFont);
+        txtHarga.setFont(inputFont);
+        cbKategori.setFont(inputFont);
+        cbStatus.setFont(inputFont);
+
+        // Tombol Aksi
+        styleButton(btnSimpanMenu, new java.awt.Color(22, 163, 74));  // Emerald Green
+        styleButton(btnEditMenu, new java.awt.Color(37, 99, 235));    // Royal Blue
+        styleButton(btnHapusMenu, new java.awt.Color(220, 38, 38));   // Crimson Red
+        styleButton(btnReset, new java.awt.Color(100, 116, 139));     // Slate Gray
+        styleButton(btnUbahStatus, new java.awt.Color(124, 58, 237)); // Modern Violet
+        styleButton(btnRefresh, new java.awt.Color(13, 148, 136));    // Teal
+        styleButton(btnLogout, new java.awt.Color(225, 29, 72));      // Rose Red
+
+        // Inisialisasi tampilan tabel
+        styleTable(tblMenu, jScrollPane1);
+        styleTable(tblPesanan, jScrollPane2);
+    }
+
+    private void styleButton(javax.swing.JButton btn, java.awt.Color bgColor) {
+        btn.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+        btn.setBackground(bgColor);
+        btn.setForeground(java.awt.Color.WHITE);
+        btn.setFocusPainted(false);
+        btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    }
+
+    private void styleTable(javax.swing.JTable table, javax.swing.JScrollPane scrollPane) {
+        table.setRowHeight(28);
+        table.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        table.setSelectionBackground(new java.awt.Color(219, 234, 254));
+        table.setSelectionForeground(new java.awt.Color(15, 23, 42));
+        table.setGridColor(new java.awt.Color(241, 245, 249));
+
+        if (table.getTableHeader() != null) {
+            table.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+            table.getTableHeader().setBackground(new java.awt.Color(226, 232, 240));
+            table.getTableHeader().setForeground(new java.awt.Color(30, 41, 59));
+            table.getTableHeader().setReorderingAllowed(false);
+        }
+
+        if (scrollPane != null) {
+            scrollPane.getViewport().setBackground(java.awt.Color.WHITE);
+            scrollPane.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(226, 232, 240), 1));
+        }
     }
 
     /**
@@ -67,6 +148,7 @@ public class FormAdmin extends javax.swing.JFrame {
             }
 
             tblMenu.setModel(model);
+            styleTable(tblMenu, jScrollPane1);
 
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Gagal memuat data menu", e);
@@ -110,6 +192,7 @@ public class FormAdmin extends javax.swing.JFrame {
             }
 
             tblPesanan.setModel(model);
+            styleTable(tblPesanan, jScrollPane2);
 
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Gagal memuat data pesanan", e);
