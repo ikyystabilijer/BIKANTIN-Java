@@ -119,7 +119,7 @@ Bikantin/
 
 ## 👤 Pembuat / Author
 
-- **ikyys** - [*GitHub Profile*]((https://github.com/ikyystabilijer))
+- **ikyystabilijer** - [*GitHub Profile*]([https://github.com/ikyystabilijer])
 
 ---
 
