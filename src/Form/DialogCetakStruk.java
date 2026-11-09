@@ -146,7 +146,7 @@ public class DialogCetakStruk extends JDialog {
         lblHeaderTitle.setFont(new Font("Segoe UI", Font.BOLD, 16));
         lblHeaderTitle.setForeground(Color.WHITE);
 
-        JLabel lblHeaderSub = new JLabel("BI-KANTIN &bull; Bukti Transaksi Resmi Siswa", SwingConstants.CENTER);
+        JLabel lblHeaderSub = new JLabel("BI-KANTIN -- Bukti Transaksi Resmi Siswa", SwingConstants.CENTER);
         lblHeaderSub.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         lblHeaderSub.setForeground(new Color(203, 213, 225)); // Slate 300
 
