@@ -67,7 +67,7 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek di komputer lokal:
 
 ### 1. Clone Repositori
 ```bash
-git clone https://github.com/USERNAME_LU/Bikantin.git](https://github.com/ikyystabilijer/BIKANTIN-Java.git
+git clone https://github.com/ikyystabilijer/BIKANTIN-Java.git
 cd Bikantin
 ```
 
